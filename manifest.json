@@ -1,0 +1,17 @@
+{
+  "name": "IntentGuard",
+  "version": "1.0.0",
+  "description": "Conflict-aware smart home automation agent with adversarial defense",
+  "endpoint": "/run",
+  "health_endpoint": "/health",
+  "port": 8000,
+  "input_schema": {
+    "task": "string"
+  },
+  "output_schema": {
+    "output": "string",
+    "defended": "boolean",
+    "bypassed": "boolean",
+    "has_json": "boolean"
+  }
+}
