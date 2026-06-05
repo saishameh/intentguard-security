@@ -22,7 +22,7 @@ RUN pip install --no-cache-dir -r requirements.txt && \
 # ── copy application code ─────────────────────────────────────────────────────
 COPY cli.py              ./cli.py
 COPY smart_home_agent.py ./smart_home_agent.py
-COPY ingest_data.py      ./ingest_data.py
+COPY ingestdata.py      ./ingestdata.py
 COPY a2a_handler.py      ./a2a_handler.py
 
 # Copy data files that are already generated / committed to the repo

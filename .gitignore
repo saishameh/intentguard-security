@@ -39,8 +39,8 @@ wheels/
 Thumbs.db
 
 # Project specific
-generated_rules.json
-test_results.json
+# generated_rules.json
+# test_results.json
 
 # Jupyter
 .ipynb_checkpoints/
