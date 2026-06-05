@@ -1,0 +1,109 @@
+{
+  "rules": [
+    {
+      "rule_id": "rule_001",
+      "created_at": "2025-11-14T10:30:00Z",
+      "name": "Turn off the living room fan when motion is no longer detected",
+      "actions": [
+        {
+          "if": {
+            "equals": {
+              "left": {
+                "device": {
+                  "devices": ["e541b315-e84b-403f-aa87-7a15f4ff9f99"],
+                  "component": "main",
+                  "capability": "motionSensor",
+                  "attribute": "motion"
+                }
+              },
+              "right": {
+                "string": "inactive"
+              }
+            }
+          },
+          "then": [
+            {
+              "command": {
+                "devices": ["e541b315-e84b-403f-aa87-7a15f4ff9f99"],
+                "commands": [
+                  {
+                    "component": "main",
+                    "capability": "switch",
+                    "command": "off"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rule_id": "rule_002",
+      "created_at": "2025-11-14T11:00:00Z",
+      "name": "Turn on hallway lights when front door opens",
+      "actions": [
+        {
+          "if": {
+            "equals": {
+              "left": {
+                "device": {
+                  "devices": ["front-door-sensor-id"],
+                  "component": "main",
+                  "capability": "contactSensor",
+                  "attribute": "contact"
+                }
+              },
+              "right": {
+                "string": "open"
+              }
+            }
+          },
+          "then": [
+            {
+              "command": {
+                "devices": ["hallway-lights-id"],
+                "commands": [
+                  {
+                    "component": "main",
+                    "capability": "switch",
+                    "command": "on"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rule_id": "rule_003",
+      "created_at": "2025-11-14T09:00:00Z",
+      "name": "Turn on bedroom lights at 9:00 AM every day",
+      "actions": [
+        {
+          "if": {
+            "time": {
+              "at": "09:00",
+              "daysOfWeek": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+            }
+          },
+          "then": [
+            {
+              "command": {
+                "devices": ["bedroom-light-id"],
+                "commands": [
+                  {
+                    "component": "main",
+                    "capability": "switch",
+                    "command": "on"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
